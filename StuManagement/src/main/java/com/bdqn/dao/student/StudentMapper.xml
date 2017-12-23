@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdqn.dao.student.StudentMapper">
+    <resultMap id="studentResult" type="Student">
+        <id property="id" column="id"/>
+        <association property="clazz" resultMap="classResult"/>
+    </resultMap>
+    <resultMap id="classResult" type="Classes">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+    </resultMap>
+    <select id="findAll" resultMap="studentResult">
+        SELECT s.*, c.name as c_name, c.id as c_id
+        FROM student s, classes c
+        where c.id = s.classId
+        order by s.id asc
+    </select>
+    <insert id="addStudent" parameterType="Student">
+        INSERT into student(name, age, gender, telephone, email, classId)
+        VALUES (#{name},#{age},#{gender},#{telephone},#{email},#{classId})
+    </insert>
+</mapper>
