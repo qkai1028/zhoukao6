@@ -94,7 +94,7 @@
             }
             var emailReg = /^[a-zA-Z]\w{2,}@\w{2,}(\.\w{2,3}){1,2}$/;
             if(!emailReg.test(email)){
-                alert("邮箱格式错误！")
+                alert("邮箱格式错误麻瓜！")
                 return false;
             }
 
