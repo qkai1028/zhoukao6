@@ -97,10 +97,7 @@
                 alert("邮箱格式错误！")
                 return false;
             }
-            if(classId=="0"){
-                alert("请选择班级");
-                return false;
-            }
+
         }
     </script>
 </body>
